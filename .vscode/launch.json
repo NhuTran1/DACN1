@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Backend",
+      "type": "python",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "backend.src.main:app",
+        "--reload",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8000"
+      ],
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Debug Train Detection",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/train_detection.py",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Debug Evaluate Model",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/evaluate_model.py",
+      "envFile": "${workspaceFolder}/.env",
+      "console": "integratedTerminal"
+    }
+  ]
+}

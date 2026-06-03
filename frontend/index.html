@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Expiration</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">SE</div>
+        <div>
+          <h1>Smart Expiration</h1>
+          <p>Nhận diện hạn sử dụng sản phẩm</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <section class="upload-panel" aria-labelledby="upload-title">
+        <div>
+          <p class="eyebrow">Quét sản phẩm</p>
+          <h2 id="upload-title">Tải ảnh bao bì sản phẩm</h2>
+          <p class="muted">Chọn ảnh JPG hoặc PNG có vùng in ngày tháng rõ ràng.</p>
+        </div>
+
+        <form id="scan-form">
+          <label class="drop-zone" for="image-input" id="drop-zone">
+            <span class="upload-icon" aria-hidden="true">↑</span>
+            <strong>Chọn ảnh sản phẩm</strong>
+            <span>hoặc kéo thả ảnh vào đây</span>
+            <small>JPG, JPEG, PNG</small>
+          </label>
+          <input id="image-input" type="file" accept=".jpg,.jpeg,.png,image/jpeg,image/png" required />
+          <div class="form-actions">
+            <span id="selected-file" class="selected-file">Chưa chọn ảnh</span>
+            <button id="scan-button" type="submit">Quét hạn sử dụng</button>
+          </div>
+        </form>
+
+        <p id="error-message" class="error-message" role="alert" hidden></p>
+      </section>
+
+      <section id="result-panel" class="result-panel" aria-live="polite" hidden>
+        <div class="result-heading">
+          <div>
+            <p class="eyebrow">Kết quả phân tích</p>
+            <h2>Thông tin hạn sử dụng</h2>
+          </div>
+          <span id="status-badge" class="status-badge"></span>
+        </div>
+
+        <div class="result-grid">
+          <div class="image-column">
+            <figure>
+              <figcaption>Ảnh đã tải lên</figcaption>
+              <div class="image-frame">
+                <img id="original-preview" alt="Ảnh sản phẩm đã tải lên" />
+              </div>
+            </figure>
+            <figure id="roi-figure" hidden>
+              <figcaption>Vùng ngày tháng được phát hiện</figcaption>
+              <div class="image-frame roi-frame">
+                <img id="roi-preview" alt="Vùng ngày tháng được phát hiện" />
+              </div>
+            </figure>
+          </div>
+
+          <div class="details-column">
+            <dl class="details-list">
+              <div>
+                <dt>Ngày hết hạn</dt>
+                <dd id="parsed-date">-</dd>
+              </div>
+              <div>
+                <dt>Văn bản được chọn</dt>
+                <dd id="selected-raw">-</dd>
+              </div>
+              <div>
+                <dt>Độ tin cậy phát hiện</dt>
+                <dd id="detection-confidence">-</dd>
+              </div>
+              <div>
+                <dt>Độ tin cậy OCR</dt>
+                <dd id="ocr-confidence">-</dd>
+              </div>
+            </dl>
+
+            <section class="text-block">
+              <h3>Văn bản OCR</h3>
+              <pre id="ocr-text">-</pre>
+            </section>
+
+            <section id="warnings-block" class="warnings-block" hidden>
+              <h3>Cảnh báo</h3>
+              <ul id="warnings-list"></ul>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

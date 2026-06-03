@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Environment variables
+.env
+.env.local
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dataset - do not push large datasets
+data/raw/
+data/processed/
+data/yolo/
+data/samples/
+
+# Upload/runtime files
+uploads/*
+!uploads/.gitkeep
+
+# Outputs/cache/logs/predictions
+outputs/
+runs/
+*.log
+
+# Kaggle upload packages
+kaggle_upload/
+*.zip
+*.rar
+*.7z
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# PaddleOCR / model cache
+outputs/cache/
+paddlex/
+.paddlex/
+
+# Keep trained YOLO model if small enough for GitHub
+# If best.pt becomes large, remove this exception and use Git LFS or Release.
+!models/
+!models/detection/
+!models/detection/best.pt
+
+# Optional: ignore other model formats
+*.onnx
+*.engine
+*.tflite

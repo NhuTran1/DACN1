@@ -1,0 +1,45 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Backend",
+      "type": "shell",
+      "command": "${workspaceFolder}\\venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "uvicorn",
+        "backend.src.main:app",
+        "--reload",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8000"
+      ],
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Train Detection",
+      "type": "shell",
+      "command": "${workspaceFolder}\\venv\\Scripts\\python.exe",
+      "args": ["scripts/train_detection.py"],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Evaluate Model",
+      "type": "shell",
+      "command": "${workspaceFolder}\\venv\\Scripts\\python.exe",
+      "args": ["scripts/evaluate_model.py"],
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Preprocess Dataset",
+      "type": "shell",
+      "command": "${workspaceFolder}\\venv\\Scripts\\python.exe",
+      "args": ["scripts/preprocess_dataset.py"],
+      "problemMatcher": []
+    }
+  ]
+}
