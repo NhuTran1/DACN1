@@ -382,3 +382,5 @@ Trạng thái: expired
 - Bổ sung cơ sở dữ liệu quản lý lịch sử quét.
 - Bổ sung dashboard thống kê hàng hóa còn hạn, sắp hết hạn, hết hạn.
 - Tối ưu frontend demo cho cửa hàng bán lẻ.
+#   P r o d u c t _ E x p i r y _ D a t e  
+ 
